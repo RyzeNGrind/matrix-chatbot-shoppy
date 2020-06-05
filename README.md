@@ -1,9 +1,43 @@
-# Nio Template
+# matrix-chatbot-shoppy using Nio Template
+Chatbot for Matrix supporting Shoppy API
 
 A template for creating bots with
 [matrix-nio](https://github.com/poljar/matrix-nio). The documentation for
 matrix-nio can be found
 [here](https://matrix-nio.readthedocs.io/en/latest/nio.html).
+
+## References
+
+  Shoppy API 
+  https://shoppy.dev/#/
+
+  Matrix server configured and running via Docker + Ansible = Matrix Playbook
+  https://github.com/spantaleev/matrix-docker-ansible-deploy
+
+  VPS and Domain Reg, hosted at 
+  https://njal.la
+
+
+  AI Chatbot python 3.7 tutorial
+  https://techwithtim.net/tutorials/ai-chatbot/part-1/
+
+
+Matrix Docs (Guide for Developers)
+https://matrix.org/docs/develop/
+
+Possible guides relevant to this project:<br>
+  Usage of matrix-js-bot-sdk
+  https://matrix.org/docs/guides/usage-of-matrix-js-bot-sdk
+  
+  Usage of matrix-nio (Python Matrix client library)
+  https://matrix.org/docs/guides/usage-of-matrix-nio
+    
+    Docs for matrix-nio 
+    https://matrix-nio.readthedocs.io/en/latest/examples.html
+    
+    Python template for bot
+    https://github.com/anoadragon453/nio-template
+    
 
 ## Projects using nio-template
 
