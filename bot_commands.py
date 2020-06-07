@@ -32,6 +32,10 @@ class Command(object):
             await self._echo()
         elif self.command.startswith("help"):
             await self._show_help()
+        elif self.command.startswith("query"):
+            await self._show_query()
+        elif self.command.startswith("order"):
+            await self._show_order()
         else:
             await self._unknown_command()
 
