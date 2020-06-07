@@ -57,7 +57,7 @@ class Command(object):
         if topic == "rules":
             text = "These are the rules!"
         elif topic == "commands":
-            text = ("Available commands: "
+            text = ("Available commands (Prepend '!c help' + $command): "
                     "rules, query, order")
         #add help query and help order
         elif topic == "query":
