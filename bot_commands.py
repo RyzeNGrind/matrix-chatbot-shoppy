@@ -32,6 +32,7 @@ class Command(object):
             await self._echo()
         elif self.command.startswith("help"):
             await self._show_help()
+        """add query and order to list of process commands"""
         elif self.command.startswith("query"):
             await self._show_query()
         elif self.command.startswith("order"):
@@ -57,6 +58,11 @@ class Command(object):
             text = "These are the rules!"
         elif topic == "commands":
             text = "Available commands"
+        """add help query and help order"""
+        elif topic == "query":
+            text = "Available queries"
+        elif topic == "order":
+            text = "Available orders"
         else:
             text = "Unknown help topic!"
         await send_text_to_room(self.client, self.room.room_id, text)
@@ -67,3 +73,38 @@ class Command(object):
             self.room.room_id,
             f"Unknown command '{self.command}'. Try the 'help' command for more information.",
         )
+    """_show_query"""
+    async def _show_query(self):
+        """Show the query text"""
+        if not self.args:
+            text = ("What would you like to query? Use `query commands` to view "
+                    "available commands.")
+            await send_text_to_room(self.client, self.room.room_id, text)
+            return
+
+        topic = self.args[0]
+        if topic == "commands":
+            text = "Available commands POPULATE QUERY LIST HERE"
+        elif topic == "SPLIT QUERY LIST INTO ARRAY":
+            text = "ITERATE THROUGH THESE ELIF STATEMENTS UNTIL ALL POSSIBLE QUERY LIST ITEMS ARE POPULATED AS COMMANDS"
+        else:
+            text = "Unknown help topic!"
+        await send_text_to_room(self.client, self.room.room_id, text)
+
+    """_show_order"""
+    async def _show_order(self):
+        """Show the order text"""
+        if not self.args:
+            text = ("What would you like to order? Use `order commands` to view "
+                    "available commands.")
+            await send_text_to_room(self.client, self.room.room_id, text)
+            return
+
+        topic = self.args[0]
+        if topic == "commands":
+            text = "Available commands POPULATE ORDER LIST HERE"
+        elif topic == "SPLIT ORDER LIST INTO ARRAY":
+            text = "ITERATE THROUGH THESE ELIF STATEMENTS UNTIL ALL POSSIBLE ORDER LIST ITEMS ARE POPULATED AS COMMANDS IN CHRONOLOGICAL ORDER"
+        else:
+            text = "Unknown help topic!"
+        await send_text_to_room(self.client, self.room.room_id, text)
