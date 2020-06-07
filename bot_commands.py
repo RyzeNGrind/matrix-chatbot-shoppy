@@ -32,7 +32,7 @@ class Command(object):
             await self._echo()
         elif self.command.startswith("help"):
             await self._show_help()
-        """add query and order to list of process commands"""
+        #add query and order to list of process commands
         elif self.command.startswith("query"):
             await self._show_query()
         elif self.command.startswith("order"):
@@ -58,7 +58,7 @@ class Command(object):
             text = "These are the rules!"
         elif topic == "commands":
             text = "Available commands"
-        """add help query and help order"""
+        #add help query and help order
         elif topic == "query":
             text = "Available queries"
         elif topic == "order":
@@ -73,7 +73,7 @@ class Command(object):
             self.room.room_id,
             f"Unknown command '{self.command}'. Try the 'help' command for more information.",
         )
-    """_show_query"""
+    #_show_query
     async def _show_query(self):
         """Show the query text"""
         if not self.args:
@@ -91,7 +91,7 @@ class Command(object):
             text = "Unknown help topic!"
         await send_text_to_room(self.client, self.room.room_id, text)
 
-    """_show_order"""
+    #_show_order
     async def _show_order(self):
         """Show the order text"""
         if not self.args:
