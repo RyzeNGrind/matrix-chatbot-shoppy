@@ -57,7 +57,8 @@ class Command(object):
         if topic == "rules":
             text = "These are the rules!"
         elif topic == "commands":
-            text = "Available commands"
+            text = ("Available commands: "
+                    "rules, query, order")
         #add help query and help order
         elif topic == "query":
             text = "Available queries"
