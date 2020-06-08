@@ -4,6 +4,7 @@ import logging
 import asyncio
 import sys
 from time import sleep
+
 from nio import (
     AsyncClient,
     AsyncClientConfig,
