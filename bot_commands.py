@@ -27,15 +27,13 @@ class Command(object):
         self.event = event
         self.args = self.command.split()[1:]
 
-        #aioshoppy code test
-        async def example():
-            shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
+    #aioshoppy code test
+    async def example(self):
+        shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
 
-            print(await shoppy.query.list(
-                page:int = 1
-            ))
+        print(await shoppy.query.list(page= 1))
 
-        async def process(self):
+    async def process(self):
         """Process the command"""
         if self.command.startswith("echo"):
             await self._echo()
