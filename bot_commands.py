@@ -27,12 +27,6 @@ class Command(object):
         self.event = event
         self.args = self.command.split()[1:]
 
-    #aioshoppy code test
-    async def example(self):
-        shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
-
-        print(await shoppy.query.list(page= 1))
-
     async def process(self):
         """Process the command"""
         if self.command.startswith("echo"):
@@ -68,9 +62,11 @@ class Command(object):
                     "rules, query, order")
         # add help query and help order
         elif topic == "query":
-            text = "Available queries"
+            text = "Available queries \n" \
+                   "Query List"
         elif topic == "order":
-            text = "Available orders"
+            text = "Available orders \n" \
+                   "Order List"
         else:
             text = "Unknown help topic!"
         await send_text_to_room(self.client, self.room.room_id, text)
@@ -84,6 +80,7 @@ class Command(object):
 
     # _show_query
     async def _show_query(self):
+        shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
         """Show the query text"""
         if not self.args:
             text = ("What would you like to query? Use `query commands` to view "
@@ -93,15 +90,22 @@ class Command(object):
 
         topic = self.args[0]
         if topic == "commands":
-            text = "Available commands POPULATE QUERY LIST HERE"
+            text = "Available commands \n" \
+                   "Query list"
+
         elif topic == "SPLIT QUERY LIST INTO ARRAY":
             text = "ITERATE THROUGH THESE ELIF STATEMENTS UNTIL ALL POSSIBLE QUERY LIST ITEMS ARE POPULATED AS COMMANDS"
+        elif topic == "list":
+            # text = print(await shoppy.query.list(page= 1))
+            text = await shoppy.query.list(page=1)
+            return text
         else:
             text = "Unknown help topic!"
         await send_text_to_room(self.client, self.room.room_id, text)
 
     # _show_order
     async def _show_order(self):
+        shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
         """Show the order text"""
         if not self.args:
             text = ("What would you like to order? Use `order commands` to view "
