@@ -100,7 +100,8 @@ class Command(object):
         elif topic == "list":
             # text = print(await shoppy.query.list(page= 1))
             text = await shoppy.query.list(page=1)
-            #return text
+            return text
+            await shoppy.close()
         else:
             text = "Unknown help topic!"
         await send_text_to_room(self.client, self.room.room_id, text)
