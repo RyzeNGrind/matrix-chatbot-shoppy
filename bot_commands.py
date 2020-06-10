@@ -27,7 +27,9 @@ class Command(object):
         self.event = event
         self.args = self.command.split()[1:]
 
-    async def process(self):
+        # api_key = "ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi"
+
+    async def process(self, api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi"):
         """Process the command"""
         if self.command.startswith("echo"):
             await self._echo()
@@ -35,9 +37,9 @@ class Command(object):
             await self._show_help()
         # add query and order to list of process commands
         elif self.command.startswith("query"):
-            await self._show_query()
+            await self._show_query(api_key)
         elif self.command.startswith("order"):
-            await self._show_order()
+            await self._show_order(api_key)
         else:
             await self._unknown_command()
 
@@ -79,8 +81,8 @@ class Command(object):
         )
 
     # _show_query
-    async def _show_query(self):
-        shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
+    async def _show_query(self, api_key):
+        shoppy = aioshoppy.client(api_key)
         """Show the query text"""
         if not self.args:
             text = ("What would you like to query? Use `query commands` to view "
@@ -98,14 +100,14 @@ class Command(object):
         elif topic == "list":
             # text = print(await shoppy.query.list(page= 1))
             text = await shoppy.query.list(page=1)
-            return text
+            #return text
         else:
             text = "Unknown help topic!"
         await send_text_to_room(self.client, self.room.room_id, text)
 
     # _show_order
-    async def _show_order(self):
-        shoppy = aioshoppy.client(api_key="ULkxXSwVfLpRxdeTn0mtGjx2xh3Y2USTClrgMmjo2mbAPZYewi")
+    async def _show_order(self, api_key):
+        shoppy = aioshoppy.client(api_key)
         """Show the order text"""
         if not self.args:
             text = ("What would you like to order? Use `order commands` to view "
