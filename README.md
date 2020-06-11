@@ -7,7 +7,9 @@ matrix-nio can be found
 [here](https://matrix-nio.readthedocs.io/en/latest/nio.html).
 
 ## References
-
+  python aioshoppy wrapper for the Shoppy API
+  https://github.com/WardPearce/aioshoppy
+  
   Shoppy API 
   https://shoppy.dev/#/
 
