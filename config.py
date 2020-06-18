@@ -64,6 +64,9 @@ class Config(object):
 
         self.command_prefix = self._get_cfg(["command_prefix"], default="!c") + " "
 
+        # Shoppy api key setup`
+        self.shoppy_api_key = self._get_cfg(["shoppy","api_key"], required=True)
+
     def _get_cfg(
             self,
             path: List[str],

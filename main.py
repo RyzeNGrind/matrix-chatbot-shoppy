@@ -4,6 +4,7 @@ import logging
 import asyncio
 import sys
 from time import sleep
+import aioshoppy
 
 from nio import (
     AsyncClient,
@@ -53,6 +54,9 @@ async def main():
         store_path=config.store_filepath,
         config=client_config,
     )
+
+    # Initialize the shoppy client
+    shoppy = aioshoppy.client(config.shoppy_api_key)
 
     # Set up event callbacks
     callbacks = Callbacks(client, store, config)
